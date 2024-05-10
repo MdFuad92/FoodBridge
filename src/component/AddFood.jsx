@@ -6,166 +6,176 @@ const AddFood = () => {
     
     const {user} = useContext(AuthContext) 
 
-    const handleAddcrafts = (e)=>{
+    const handleFoodData = (e)=>{
        e.preventDefault()
        const form = e.target
-       const item_name = form.item_name.value
+       const food_name = form.Food_name.value
+       const image = form.Food_image.value
+       const location = form.pickup_location.value
+       const quantity = form.quantity.value
+       const date = form.date.value
+       const status   = form.status.value
+       const note = form.note.value
        const photo = form.photo.value
-       const category = form.subcategory_Name.value
-       const price = form.price.value
-       const rating = form.rating.value
-       const Customize   = form.customization.value
-       const stock = form.stock.value
-       const processing    = form.processing.value
-       const description = form.description.value
        const email = form.email.value
        const name = form.name.value       
-       const newCraft = {email,name,Customize,stock,processing,item_name ,photo, category ,price ,rating,description}
-       console.log(newCraft)
+       const foodItems = {email,name,food_name,image,location,date ,photo, status,note,quantity}
+       console.log(foodItems)
 
    
 
     }
     return (
-        <div className="hero min-h-screen opacity-80  bg-no-repeat" style={{backgroundImage: 'url(https://i.ibb.co/ZSw5kS1/family-scaled.jpg)'}}>
-            <form onSubmit={handleAddcrafts} className="card-body  " data-aos="fade-up"data-aos-duration='1000'>
-        <h1 className='md:text-4xl text-2xl font-extrabold text-center '>Add Your Favorite Item</h1>
-           {/* form name and quantity*/} 
-        <div className='md:flex items-center gap-8'>
-        <div className="form-control md:w-1/2  ">
-            <label className="label">
-            <span className="label-text">Food URL</span>
-            </label>
-            <input  type="text" placeholder="item URL" name='photo' className="input input-bordered w-full" required />
-            </div>
-            <div className="form-control md:w-auto ">
-            <label className="label">
-            <span className="label-text">Food Name</span>
-            </label>
-            <input type="text" name='item_name' placeholder="Item Name" className="input input-bordered" required />
-          
-            </div>
-           
-        </div>
-         {/* form supply and taste*/} 
-        <div className='md:flex gap-8 items-center '>
-        <div className="form-control md:w-1/2 ">
-            <label className="label">
-            <span className="label-text">Food Category</span>
-            </label>
-          
-            <select className='input' placeholder='Category'  type="text" name="subcategory_Name" id="pottery-type">
-                        <option value="Clay-made pottery">Clay-made pottery </option>
-                        <option value="Stoneware"><span>Stoneware</span></option>
-                        <option value="Porcelain"><span>Porcelain</span></option>
-                        <option value="Terra Cotta"><span>Terra Cotta</span></option>
-                        <option value="Ceramics & Architectural"><span>Ceramics & Architectural</span></option>
-                        <option value="Home decor pottery"><span>Home decor pottery</span></option>
-                        <option value="Earthenware"><span>Earthenware</span></option>
-                        <option value="Majolica"><span>Majolica</span></option>
-                        <option value="Raku"><span>Raku</span></option>
-                        <option value="Wood-Fired Ceramics"><span>Wood-Fired Ceramics</span></option>
-                   
-                        
-                    </select>
-            </div>
-            <div className="form-control   ">
-            <label className="label">
-            <span className="label-text">Price</span>
-            </label>
-            <input type="text" name='price' placeholder="Price" className="input input-bordered" required />
-          
-            </div>
-           
-        </div>
-            {/* form category and details*/} 
-        <div className='md:flex items-center gap-8 '>
-        <div className="form-control md:w-1/2 ">
-            <label className="label">
-            <span className="label-text">Rating</span>
-            </label>
-            <input  type="text" placeholder="Rating" name='rating'  className="input input-bordered w-full" required />
-            </div>
-            <div className="form-control md:w-auto  ">
-            <h1 className='font-bold'>Customization</h1>
-           <label className="cursor-pointer label space-x-3">
-        
-           <span className="label-text ">Yes</span>
-           <input type="radio" name='customization' value='yes' className="checkbox checkbox-accent" />
-        
-         </label>
-           <label className="cursor-pointer label space-x-3">
-        
-           <span className="label-text ">No</span>
-           <input type="radio" name='customization' value='no' className="checkbox checkbox-error" />
-        
-         </label>
-         </div>       
-           
-        </div>
-     
-        <div className='md:flex items-center gap-8 '>
-       
-        <div className="form-control md:w-1/2 ">
-        <label className="label">
-            <span className="label-text">Processing Time</span>
-            </label>
-        <input  type="text" name='processing' placeholder="Processing Time" className="input input-bordered"  required />
-          
-            </div>
-            <div className="form-control ">
-            <h1 className='font-bold'>Stock Status</h1>
-            <label className="cursor-pointer label space-x-3 ">
-            <span className="label-text">Available</span>
-            
-            <input  type="radio" name='stock' value=' Instock'   className="checkbox checkbox-accent" required  />
-          
-          
-            </label>
-            <label className="cursor-pointer label space-x-3 ">
-            <span className="label-text">Not Available</span>
-            
-            <input  type="radio" name='stock' value='Out of Stock'   className="checkbox checkbox-error" required  />
-          
-          
-            </label>
-            </div>
-           
-        </div>
+        <div className="hero min-h-screen opacity-90 p-9  bg-no-repeat" style={{backgroundImage: 'url(https://i.ibb.co/ZSw5kS1/family-scaled.jpg)'}}>
 
-        <div className='md:flex items-center gap-8 '>
-        <div className="form-control md:w-1/2 ">
-            <label className="label">
-            <span className="label-text font-bold">Email</span>
-            </label>
-            <input  type="email" name='email' defaultValue={user?.email} placeholder="Email" className="input input-bordered" required  readOnly/>
+          <div className="card bg-white bg-opacity-90 shadow-lg p-6">
+            <div className="p-6 border rounded-xl  space-y-6">
+                <h1 className="text-2xl font-semibold">Donator Info</h1>
+                 <span className="flex items-center font-bold">Profile pic:<img className="border rounded-xl w-24" src={user.photoURL} alt="" /></span>
+
+                 <p className="font-bold">Name : {user.displayName}</p>
+                 <p className="font-bold">Email : {user.email} </p>
             </div>
-            <div className="form-control">
-            <label className="label">
-            <span className="label-text font-bold">Name</span>
-            </label>
-            <input type="name" name='name' defaultValue={user?.displayName} placeholder="Name" className="input input-bordered" required readOnly />
-          
-          
-            </div>
+          <form onSubmit={handleFoodData} className="card-body     " data-aos="fade-up"data-aos-duration='1000'>
+               
+
+               {/* form name and quantity*/} 
+            <div className='md:flex items-center gap-8'>
            
-        </div>
-        <div className='md:flex items-center gap-8 '>
-        <div className="form-control w-full ">
-            <label className="label">
-            <span className="label-text font-bold">Description</span>
-            </label>
-            <input type="text" name='description' placeholder="Description" className="input input-bordered" required />
+                <div className="form-control md:w-auto ">
+                <label className="label">
+                <span className="label-text text-black text-lg">Food Name</span>
+                </label>
+                <input type="text" name='Food_name' placeholder="Food Name" className="input input-bordered" required />
+              
+                </div>
+                <div className="form-control md:w-1/2  ">
+                <label className="label">
+                <span className="label-text text-black text-lg">Food URL</span>
+                </label>
+                <input  type="text" placeholder="Food URL" name='Food_image' className="input input-bordered w-full" required />
+                </div>
+               
             </div>
-      
-           
-        </div>
-     
-      
+         
     
-        <input type="submit" value='Add' className='btn btn-block hover:bg-neutral-700 bg-neutral-700 text-white border-neutral-700' />
-            </form>
+            <div className='md:flex gap-8 items-center '>
+        
+            <div className="form-control md:w-1/2 ">
+                <label className="label">
+            <span className="label-text text-black text-sm">Pickup Location</span>
+                </label>
+              
+                <select className='input border-gray-200' placeholder='Pickup Location'  type="text" name="pickup_location" id="location">
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Comilla"><span>Comilla</span></option>
+                            <option value="Dhaka"><span>Dhaka</span></option>
+                            <option value="Barisal"><span>Barisal</span></option>
+                            <option value="Rangpur"><span>Rangpur</span></option>
+                            <option value="Rajshahi"><span>Rajshahi</span></option>
+                   
+                       
+                       
+                        </select>
+                        
+                </div>
+            
+                <div className="form-control   ">
+                <label className="label">
+                <span className="label-text text-black text-lg">Expired Date</span>
+                </label>
+                <input type="date" name='date' placeholder="Expiration Date" className="input input-bordered" required />
+              
+                </div>
+               
+            </div>
+            
+            <div className='md:flex items-center gap-8 '>
+            <div className="form-control md:w-1/2 ">
+                <label className="label">
+                <span className="label-text text-black text-sm">Quantity</span>
+                </label>
+              
+                <select className='input border border-gray-200' placeholder='Category'  type="text" name="quantity" id="quantity-type">
+                            <option value="10">10</option>
+                            <option value="20"><span>20</span></option>
+                            <option value="30"><span>30</span></option>
+                            <option value="40"><span>40</span></option>
+                            <option value="50"><span>50</span></option>
+                            <option value="60"><span>60</span></option>
+                   
+                       
+                         
+                        </select>
+                        
+                </div>
+                <div className="form-control ">
+                <h1 className='font-bold'>Food Status</h1>
+                <label className="cursor-pointer label space-x-3 ">
+                <span className="label-text text-black text-lg">Available</span>
+                
+                <input  type="radio" name='status' value='Available' checked   className="checkbox checkbox-success" required  />
+              
+              
+                </label>
+                <label className="cursor-pointer label space-x-3 ">
+                <span className="label-text text-black text-lg">Not Available</span>
+                
+                <input  type="radio" name='status' value='Not Available'   className="checkbox checkbox-error" required  />
+              
+              
+                </label>
+                </div>
+               
+            </div>
+         
+            <div className='md:flex items-center gap-8 '>
            
+          
+        
+               
+            </div>
+    
+            <div className='md:flex items-center gap-8 '>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-bold text-xl">User Image</span>
+              </label>
+              <input type="photo" placeholder="photo" name='photo' defaultValue={user.photoURL} className="input input-bordered" required />
+            </div>
+            <div className="form-control md:w-1/2 ">
+                <label className="label">
+                <span className="label-text font-bold text-black text-lg">Email</span>
+                </label>
+                <input  type="email" name='email' defaultValue={user?.email} placeholder="Email" className="input input-bordered" required  readOnly/>
+                </div>
+                <div className="form-control">
+                <label className="label">
+                <span className="label-text font-bold text-black text-lg">Name</span>
+                </label>
+                <input type="name" name='name' defaultValue={user?.displayName} placeholder="Name" className="input input-bordered" required readOnly />
+              
+              
+                </div>
+               
+            </div>
+            <div className='md:flex items-center gap-8 '>
+            <div className="form-control w-full ">
+                <label className="label">
+                <span className="label-text font-bold text-black text-lg">Note</span>
+                </label>
+                <input type="text" name='note' placeholder="Note" className="input input-bordered" required />
+                </div>
+          
+               
+            </div>
+         
+          
+        
+            <input type="submit" value='Add' className='btn btn-block btn-success text-white ' />
+                </form>
+               
+          </div>
             
     
         </div>
