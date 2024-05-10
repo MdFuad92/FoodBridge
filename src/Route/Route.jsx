@@ -6,6 +6,7 @@ import Root from "../layout/Root";
 import Home from "../Home/Home";
 import Login from "../AuthRoute/Login";
 import Register from "../AuthRoute/Register";
+import AddFood from "../component/AddFood";
 
 
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         {
             path:'/register',
             element:<Register></Register>
+        },
+        {
+            path:'/add',
+            element:<AddFood></AddFood>
         }
       ]
     },

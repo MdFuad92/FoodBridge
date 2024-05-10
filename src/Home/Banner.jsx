@@ -21,7 +21,7 @@ const Banner = () => {
           <div className="max-w-2xl mx-auto space-y-5" data-aos="fade-up" data-aos-duration='1000' >
           <div className='flex items-center gap-5' >  
         
-              <h1 className='md:text-5xl text-2xl text-white'  >{typeEffect}</h1>
+              <h1 className='md:text-5xl text-2xl text-white '  >{typeEffect}</h1>
              
               
           </div >
