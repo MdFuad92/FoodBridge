@@ -15,7 +15,7 @@ const HeaderNav = () => {
                <IoLocationSharp className='text-5xl' />
                 <p className='font-medium'> 153 Crysta Vista New Jersey, NY 11334</p>
                </div>
-               <div className='flex space-x-3'>
+               <div className='flex space-x-5'>
                <GrContactInfo className='text-5xl font-thin'  /> 
                <div className='flex flex-col ' >
            

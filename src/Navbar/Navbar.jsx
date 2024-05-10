@@ -1,9 +1,20 @@
+import { useContext } from "react";
 import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
+    const {logOut} = useContext(AuthContext)
 
+    const {user} = useContext(AuthContext)
+   
+    const handlelogOut = ()=>{
+    logOut()
+    .then()
+    .catch()
+   }
+   
     const links = <>
          <li ><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/available'>Available Foods</NavLink></li>
@@ -12,7 +23,7 @@ const Navbar = () => {
         <li><NavLink to='/request'>My Food Request</NavLink></li>
     </>
     return (
-        <div className="navbar bg-lime-500 h-28">
+        <div className="navbar bg-lime-500 h-16">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,29 +41,34 @@ const Navbar = () => {
   </div>
 
  
-  <div className="navbar-end space-x-3">
-  <div className="dropdown dropdown-end">
-       <div tabIndex={0} role="button" className="btn  btn-circle avatar  tooltip tooltip-neutral  tooltip-left" data-tip={user.displayName}>
-         <div className="w-12 rounded-full">
-           <img alt="Tailwind CSS Navbar component" src={user.photoURL || <CiUser /> } />
+  <div className="navbar-end ">
+  {
+    user ?
+    <div className="dropdown dropdown-end">
+         <div tabIndex={0} role="button" className="btn  btn-circle avatar  tooltip tooltip-neutral  tooltip-left" data-tip={user.displayName}>
+           <div className="w-12 rounded-full">
+             <img alt="Tailwind CSS Navbar component" src={user.photoURL || <CiUser /> } />
+           </div>
          </div>
-       </div>
-       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-       <li className='hover:bg-neutral hover:text-white rounded-lg '><a className='text-sm'><span className='text-lg'>Hi,</span>{user.displayName}!</a></li>
-         <li>
-           <a className="justify-between">
-             Profile
-             <span className="badge">New</span>
-           </a>
-         </li>
-         <li><a>Settings</a></li>
-         <button onClick={handlelogOut}><a>Logout</a></button>
-       </ul>
-     </div>
-   <Link to='/login'> <button className="btn">Login</button></Link>
-    <button className="btn">Signup</button>
-
-  </div>
+         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+         <li className='hover:bg-neutral hover:text-white rounded-lg '><a className='text-sm'><span className='text-lg'>Hi,</span>{user.displayName}!</a></li>
+           <li>
+             <a className="justify-between">
+               Profile
+               <span className="badge">New</span>
+             </a>
+           </li>
+           <li><a>Settings</a></li>
+           <button onClick={handlelogOut}><a>Logout</a></button>
+         </ul>
+       </div> :
+    <div className="space-x-3">
+    <Link to='/login'> <button className="btn">Login</button></Link>
+     <Link to='/register'> <button className="btn">Signup</button></Link>
+    </div>
+  }
+    </div>
+  
 </div>
     );
 };

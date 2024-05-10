@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Login = () => {
     
 
-
+    const {login,google,github} = useContext(AuthContext)
 
   const [security,setSecurity] = useState(false)
 
@@ -24,31 +26,47 @@ const Login = () => {
     login(email,password)
     .then((result) =>{
      console.log(result.user)
-
+      
+     Swal.fire({
+      title: "Congratulations!",
+      text: "Login Successful",
+      icon: "success"
+    });
     })
     .catch((error)=>{
       console.error(error)
-   
-    })
-  }
-
-  const handleGoogle =()=>{
-    google()
-    .then((result)=>{
-      console.log(result.user)
-   
-       
-
-        
+      Swal.fire({
+        title: "Sorry!",
+        text: "Wrong Password or Email!",
+        icon: "error"
+      });
     
     })
+
+}
+
+const handleGoogle = ()=>{
+  google()
+  .then((result)=>{
+    console.log(result.user)
+    Swal.fire({
+      title: "Congratulations!",
+      text: "Login Successful",
+      icon: "success"
+    });
+      
+     
+ 
+    })
     .catch((error)=>{
       console.error(error)
+  
       
       
       
     })
-  }
+  
+}
 
   const handleGithub = () =>{
        github()

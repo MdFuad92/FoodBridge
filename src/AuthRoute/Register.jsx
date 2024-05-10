@@ -1,21 +1,83 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
+    
+    const {createEmail,update} = useContext(AuthContext)
     const [pass,setPass] = useState(false)
 
-    const handleRegister = (e) =>{
- 
+    const handleRegister = (e)=>{
         e.preventDefault()
-        console.log(e.currentTarget)
-        const form = new FormData(e.currentTarget)
-        const name = form.get('name')
-        const photo = form.get('photo')
-        const email = form.get('email')
-        const password = form.get('password')
-        console.log(name,photo,email,password)
-    }    
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        const photo = form.photo.value
+        console.log(name,email,password,photo)
+
+        if(password.length < 6){
+          Swal.fire({
+            title: "Oops!",
+            text: "Password must be at least 6 characters!",
+            icon: "error"
+          });
+          
+           return
+         }
+         else if(!/[A-Z]/.test(password)){
+          Swal.fire({
+            title: "Oops!",
+            text: "Password must have atleast one Uppercasecharacter!",
+            icon: "error"
+          });
+           
+            return
+         }
+         else if(!/[a-z]/.test(password)){
+          Swal.fire({
+            title: "Oops!",
+            text: "Password must have atleast one Lowercasecharacter!",
+            icon: "error"
+          });
+          
+           return
+         }
+
+        createEmail(email,password,name,photo)
+        .then((result)=>{
+          console.log(result)
+         
+          update(name,photo)
+          .then((result)=>{
+          console.log(result)
+          window.location.reload()
+      
+         
+           
+          }
+         )
+          .catch()
+          Swal.fire({
+            title: "Congratulations!",
+            text: "Registration Successful",
+            icon: "success"
+          });
+
+      
+      
+        })
+        .catch((error)=>{
+          console.error(error)
+          Swal.fire({
+            title: "Sorry!",
+            text: "Already Registered!",
+            icon: "error"
+          });
+        })
+  }  
     return (
         <div className="hero min-h-screen bg-base-200" >
         
