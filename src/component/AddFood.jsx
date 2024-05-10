@@ -1,5 +1,8 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const AddFood = () => {
@@ -21,17 +24,31 @@ const AddFood = () => {
        const name = form.name.value       
        const foodItems = {email,name,food_name,image,location,date ,photo, status,note,quantity}
        console.log(foodItems)
+       
+       axios.post('http://localhost:5000/foods',foodItems)
+       .then(data=>{
+        console.log(data.data)
+        if(data.data.insertedId){
+            Swal.fire({
+                title: "Congratulations!",
+                text: "Added Successfully",
+                icon: "success"
+              });
+          }
+       })
 
-   
 
     }
+
+  
     return (
         <div className="hero min-h-screen opacity-90 p-9  bg-no-repeat" style={{backgroundImage: 'url(https://i.ibb.co/ZSw5kS1/family-scaled.jpg)'}}>
 
           <div className="card bg-white bg-opacity-90 shadow-lg p-6">
-            <div className="p-6 border rounded-xl  space-y-6">
+            <div className="p-6 border border-gray-300 rounded-xl  space-y-6">
                 <h1 className="text-2xl font-semibold">Donator Info</h1>
-                 <span className="flex items-center font-bold">Profile pic:<img className="border rounded-xl w-24" src={user.photoURL} alt="" /></span>
+                 <span className="flex items-center space-y-6 font-bold "><span className="mr-5">Profile Photo: </span>
+                 <img className="border rounded-xl w-24" src={user.photoURL} alt="" /></span>
 
                  <p className="font-bold">Name : {user.displayName}</p>
                  <p className="font-bold">Email : {user.email} </p>
@@ -141,7 +158,7 @@ const AddFood = () => {
               <label className="label">
                 <span className="label-text font-bold text-xl">User Image</span>
               </label>
-              <input type="photo" placeholder="photo" name='photo' defaultValue={user.photoURL} className="input input-bordered" required />
+              <input type="photo" placeholder="photo" name='photo' defaultValue={user.photoURL} className="input input-bordered" required readOnly />
             </div>
             <div className="form-control md:w-1/2 ">
                 <label className="label">

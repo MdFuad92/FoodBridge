@@ -7,6 +7,8 @@ import Home from "../Home/Home";
 import Login from "../AuthRoute/Login";
 import Register from "../AuthRoute/Register";
 import AddFood from "../component/AddFood";
+import PrivateRoute from "./PrivateRoute";
+import Available from "../component/Available";
 
 
 
@@ -29,7 +31,11 @@ const router = createBrowserRouter([
         },
         {
             path:'/add',
-            element:<AddFood></AddFood>
+            element:<PrivateRoute><AddFood></AddFood></PrivateRoute>
+        },
+        {
+            path:'/available',
+            element:<Available></Available>
         }
       ]
     },

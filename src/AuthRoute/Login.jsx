@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
@@ -11,6 +11,8 @@ const Login = () => {
     const {login,google,github} = useContext(AuthContext)
 
   const [security,setSecurity] = useState(false)
+  const loc = useLocation()
+  const navigate = useNavigate()
 
  
 
@@ -32,6 +34,7 @@ const Login = () => {
       text: "Login Successful",
       icon: "success"
     });
+    navigate(loc?.state?loc.state:'/' )
     })
     .catch((error)=>{
       console.error(error)
@@ -86,7 +89,7 @@ const handleGoogle = ()=>{
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">The login route for our website provides secure access for registered users. By entering their credentials (username/email and password), clients can authenticate themselves to gain personalized access to property listings and account settings. Our login process ensures data privacy and protection, enhancing the user experience and enabling seamless interaction with our platform.</p>
+      <p className="py-6"></p>
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogin} className="card-body">
@@ -109,10 +112,10 @@ const handleGoogle = ()=>{
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-success">Login</button>
+          <button  className="btn btn-success">Login</button>
         </div>
         <button onClick={handleGoogle} className='btn btn-neutral'><FaGoogle />Google</button>
-               <button onClick={handleGithub} className='btn btn-neutral'><FaGithub />Github</button>
+        <button onClick={handleGithub} className='btn btn-neutral'><FaGithub />Github</button>
         <div>
                 <p className='text-center mt-3 text-sm'>Dont have an account <Link to='/register'><span className='text-primary font-semibold '>Register</span></Link> Now</p>
               </div>

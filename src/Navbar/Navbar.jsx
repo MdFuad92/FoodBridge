@@ -16,11 +16,11 @@ const Navbar = () => {
    }
    
     const links = <>
-         <li ><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/available'>Available Foods</NavLink></li>
-        <li><NavLink to='/add'>Add Food</NavLink></li>
-        <li><NavLink to='/manage'>Manage My food</NavLink></li>
-        <li><NavLink to='/request'>My Food Request</NavLink></li>
+         <li ><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/'><span className="hover:text-slate-900 hover:duration-1000  ">Home</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/available'><span className="hover:text-slate-900 hover:duration-1000  ">Available Foods</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/add'><span className="hover:text-slate-900 hover:duration-1000  ">Add Food</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/manage'><span className="hover:text-slate-900 hover:duration-1000  ">My Foods</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/request'><span className="hover:text-slate-900 hover:duration-1000  ">My Food Request</span></NavLink></li>
     </>
     return (
         <div className="navbar bg-lime-500 h-16">
@@ -34,7 +34,7 @@ const Navbar = () => {
       </ul>
     </div>
     <div className="navbar-center pl-10 hidden lg:flex">
-    <ul className="menu menu-horizontal  text-base  font-medium text-white  px-1">
+    <ul className=" space-x-6 menu-horizontal  text-base  font-medium text-white  px-1">
      {links}
     </ul>
   </div>
