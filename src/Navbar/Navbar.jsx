@@ -1,3 +1,4 @@
+import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 
 
@@ -27,8 +28,27 @@ const Navbar = () => {
     </ul>
   </div>
   </div>
+
  
   <div className="navbar-end space-x-3">
+  <div className="dropdown dropdown-end">
+       <div tabIndex={0} role="button" className="btn  btn-circle avatar  tooltip tooltip-neutral  tooltip-left" data-tip={user.displayName}>
+         <div className="w-12 rounded-full">
+           <img alt="Tailwind CSS Navbar component" src={user.photoURL || <CiUser /> } />
+         </div>
+       </div>
+       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+       <li className='hover:bg-neutral hover:text-white rounded-lg '><a className='text-sm'><span className='text-lg'>Hi,</span>{user.displayName}!</a></li>
+         <li>
+           <a className="justify-between">
+             Profile
+             <span className="badge">New</span>
+           </a>
+         </li>
+         <li><a>Settings</a></li>
+         <button onClick={handlelogOut}><a>Logout</a></button>
+       </ul>
+     </div>
    <Link to='/login'> <button className="btn">Login</button></Link>
     <button className="btn">Signup</button>
 

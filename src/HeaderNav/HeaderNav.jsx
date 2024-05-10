@@ -8,7 +8,7 @@ const HeaderNav = () => {
         <div className='bg-white mx-auto max-w-6xl h-36 '>
             <nav className='flex items-center gap-20'>
                <div className='flex items-center'>
-               <img className='w-32  ' src={logo} alt="" />
+               <img className='w-36  ' src={logo} alt="" />
                <h1 className='text-xl font-semibold'>Green <br /> Basket</h1>
                </div>
                <div className='flex items-center space-x-3' >
