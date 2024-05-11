@@ -31,7 +31,7 @@ const Banner = () => {
           
            </p>
             <div className='mt-5 space-x-3'>
-          <Link to={'/available'}><button className="btn btn-success text-black">Shop Now</button></Link>
+          <Link to={'/add'}><button className="btn btn-success text-black">Donate Now</button></Link>
         
           </div>
           

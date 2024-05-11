@@ -9,6 +9,7 @@ import Register from "../AuthRoute/Register";
 import AddFood from "../component/AddFood";
 import PrivateRoute from "./PrivateRoute";
 import Available from "../component/Available";
+import FoodDetails from "../component/FoodDetails";
 
 
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
         {
             path:'/available',
             element:<Available></Available>
+        },
+        {
+          path:'/details/:id',
+          element:<FoodDetails></FoodDetails>,
+          loader:({params})=> fetch(`http://localhost:5000/foods/${params.id}`)
         }
       ]
     },

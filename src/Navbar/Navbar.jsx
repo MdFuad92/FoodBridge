@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Fade } from "react-reveal";
 
 
 const Navbar = () => {
@@ -38,6 +39,9 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
+  </div>
+  <div>
+    <h2 className="font-pacifico  ml-52 w-96 text-3xl text-white"><Fade duration={2000}>Welcome to Green Basket</Fade></h2>
   </div>
 
  

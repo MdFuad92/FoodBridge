@@ -3,9 +3,11 @@ import Banner from './Banner';
 import FeaturedFoods from '../component/FeaturedFoods';
 import { useQuery } from '@tanstack/react-query';
 import WebsiteFeatures from './WebsiteFeatures';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-
+   
+    const [dataLength,setDataLength] = useState(11)
     const {isPending,data:food} = useQuery({
         queryKey:['foods'],
         
@@ -23,7 +25,7 @@ const Home = () => {
     
      
     
-       
+      
          
             
         
@@ -45,12 +47,17 @@ const Home = () => {
             <WebsiteFeatures></WebsiteFeatures>
            </div>
 
-           <div className='grid grid-cols-3 gap-6'>
+           <div className='ml-10 grid grid-cols-3 gap-6'>
            {
         food.map(ff=> ff.quantity === '60'? <FeaturedFoods key={ff._id} ff={ff} ></FeaturedFoods>:''
             
               )}
            </div>
+           <div className='text-center mb-7' >
+          <div >
+           <Link to='/available'> <button className=' btn btn-outline btn-success'>Show All </button></Link>
+          </div>
+          </div>
         
         </div>
     );

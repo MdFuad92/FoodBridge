@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import logo from '../../src/assets/3552144.jpg'
+import { Slide } from "react-awesome-reveal";
 
 
 const Login = () => {
@@ -87,12 +88,17 @@ const handleGoogle = ()=>{
     return (
         <div className="hero min-h-screen bg-base-200" >
  
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">logn</h1>
-      <img src={logo} alt="" />
+  <div className="hero-content overflow-hidden flex-col lg:flex-row-reverse">
+    <Slide direction="right"  duration={2000}>
+    <div className="text-center lg:text-left overflow-x-hidden">
+      <h1 className="text-2xl font-thin">Login  to access  donate option to help out the community </h1>
+     
     </div>
-    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    </Slide >
+  
+   <div className="card h-1/2 shrink-0 w-full max-w-sm shadow-xl bg-base-100">
+   
+    <img className="w-60  mx-auto my-auto" src={logo} alt="" />
       <form onSubmit={handleLogin} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -118,7 +124,7 @@ const handleGoogle = ()=>{
         <button onClick={handleGoogle} className='btn btn-neutral'><FaGoogle />Google</button>
         <button onClick={handleGithub} className='btn btn-neutral'><FaGithub />Github</button>
         <div>
-                <p className='text-center mt-3 text-sm'>Dont have an account <Link to='/register'><span className='text-primary font-semibold '>Register</span></Link> Now</p>
+                <p className='text-center mt-3 text-sm'>Dont have an account <Link to='/register'><span className='text-black text-lg font-semibold '>Register</span></Link> Now</p>
               </div>
             
 
@@ -126,7 +132,9 @@ const handleGoogle = ()=>{
 
 
       </form>
+  
     </div>
+
   </div>
 </div>
     );

@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const FeaturedFoods = ({ff}) => {
- const {email,name,food_name,image,location,date ,photo, status,note,quantity} = ff
+ const {email,name,food_name,image,location,date ,photo, status,note,quantity,_id} = ff
   
     
     return (
@@ -29,7 +30,7 @@ const FeaturedFoods = ({ff}) => {
                     <img className="object-cover h-10 w-10 rounded-full" src={photo} alt="Avatar"/>
                     <a href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{name}</a>
                 </div>
-      <button className="btn btn-success">View Details</button>
+   <Link to={`/details/${_id}`}>   <button className="btn btn-success">View Details</button></Link>
     </div>
   </div>
 </div>

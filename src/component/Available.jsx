@@ -2,12 +2,13 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const Available = () => {
    
-    const [num,setNum] = useState(6)
+
 
 
 
@@ -26,7 +27,7 @@ const Available = () => {
             
    const handleSort = (sort)=>{
       if(sort === 'date'){
-        const sortedData = search.slice(0,num).sort((a,b)=> new Date(a.date) - new Date(b.date) )
+        const sortedData = search.slice().sort((a,b)=> new Date(a.date) - new Date(b.date) )
         console.log(sortedData)
         setSearch(sortedData)
         
@@ -77,7 +78,7 @@ const Available = () => {
                 
        <div className="grid grid-cols-3  gap-6  ">
        {
-            search.slice(0,num).map(s=>
+            search.map(s=> s.status === 'Available'?
                 <div key={s._id} >
                       <div className="w-96   ">
                         
@@ -106,8 +107,8 @@ const Available = () => {
                     <img className="object-cover h-10 w-10 rounded-full" src={s.photo} alt="Avatar"/>
                     <a href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{s.name}</a>
                 </div>
-              
-                <button className=" btn btn-sm btn-success font-medium ml-6">View Details</button>
+              <Link to={`/details/${s._id}`}>                <button className=" btn btn-sm btn-success font-medium ml-6">View Details</button></Link>
+
             </div>
         </div>
         
@@ -115,7 +116,7 @@ const Available = () => {
 </div>
             </div>
             
-                </div>
+                </div>:""
             )
           }
        </div>

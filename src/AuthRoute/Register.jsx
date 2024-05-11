@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import logo from '../../src/assets/3552144.jpg'
+import { Slide } from "react-awesome-reveal";
 
 const Register = () => {
     
@@ -80,16 +81,18 @@ const Register = () => {
         })
   }  
     return (
-        <div className="hero min-h-screen bg-base-200" >
+        <div className="hero overflow-hidden min-h-screen bg-base-200" >
         
 
 
       <div className="hero-content flex-col lg:flex-row-reverse">
+      <Slide direction="right"  duration={2000}>
         <div className="text-center lg:text-left">
           <h1 className="text-2xl font-thin">Join our amazing community by registering your account</h1>
-          <p>Bringing communities together</p>
+          <p className='text-lime-700 '>Bringing communities together</p>
       
         </div>
+        </Slide>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <img className='w-60  mx-auto my-auto' src={logo} alt="" />
           <form onSubmit={handleRegister} className="card-body">
