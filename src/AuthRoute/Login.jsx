@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import logo from '../../src/assets/3552144.jpg'
 
 
 const Login = () => {
@@ -88,8 +89,8 @@ const handleGoogle = ()=>{
  
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6"></p>
+      <h1 className="text-5xl font-bold">logn</h1>
+      <img src={logo} alt="" />
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogin} className="card-body">

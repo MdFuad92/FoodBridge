@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import logo from '../../src/assets/3552144.jpg'
 
 const Register = () => {
     
@@ -85,10 +86,12 @@ const Register = () => {
 
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Register now!</h1>
-          <p className="py-6">The register route on our real estate website allows new users to create accounts quickly and securely. By providing essential details such as name, email, and password, users can register to access exclusive features like saving favorite properties, and our contact page for support. Our registration process ensures data privacy and simplifies the onboarding experience for new users looking to engage with our platform.</p>
+          <h1 className="text-2xl font-thin">Join our amazing community by registering your account</h1>
+          <p>Bringing communities together</p>
+      
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <img className='w-60  mx-auto my-auto' src={logo} alt="" />
           <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">

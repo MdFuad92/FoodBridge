@@ -67,7 +67,7 @@ const Available = () => {
                 </div>
                 <div className="text-center">
                 <div className="dropdown">
-  <div tabIndex={0} role="button" className="btn btn-success m-1">Sort</div>
+  <div tabIndex={0} role="button" className="btn btn-success m-1 mb-8">Sort</div>
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
     <li onClick={()=>{handleSort('date')}}><a>Date</a></li>
     
@@ -75,7 +75,7 @@ const Available = () => {
 </div>
                 </div>
                 
-       <div className="grid grid-cols-3 space-y-3 ">
+       <div className="grid grid-cols-3  gap-6  ">
        {
             search.slice(0,num).map(s=>
                 <div key={s._id} >
@@ -107,7 +107,7 @@ const Available = () => {
                     <a href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{s.name}</a>
                 </div>
               
-                <button className="bg-lime-400 btn btn-sm ml-6">View Details</button>
+                <button className=" btn btn-sm btn-success font-medium ml-6">View Details</button>
             </div>
         </div>
         
