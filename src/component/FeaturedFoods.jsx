@@ -21,9 +21,12 @@ const FeaturedFoods = ({ff}) => {
     <p>Pickup Location: {location}</p>
     <p>Expiration Date: {date}</p>
     <p>Food Quantity: {quantity}</p>
-    <p className={ status == 'Available'?'text-green-500':'text-red-500'}>Status: {status} <span className=''>
+   
+    <div className={ status == 'Available'?'inline-flex w-24 items-center px-3 py-1 rounded-full gap-x-2 bg-green-100/60':'inline-flex w-32 items-center px-3 py-1 rounded-full gap-x-2 bg-red-100/60'} >
+    <span className={ status == 'Available'?'h-1.5 w-1.5 rounded-full bg-green-500':'h-1.5 w-1.5 rounded-full bg-red-500'}></span>
+    <h2 className='text-sm font-normal '>{status}</h2>
        
-        </span></p>
+        </div>
    
     <div className="card-actions justify-between items-center">
     <div className="flex items-center">
