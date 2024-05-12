@@ -10,7 +10,7 @@ import { Slide } from "react-awesome-reveal";
 const Login = () => {
     
 
-    const {login,google,github} = useContext(AuthContext)
+    const {login,google} = useContext(AuthContext)
 
   const [security,setSecurity] = useState(false)
   const loc = useLocation()
@@ -73,18 +73,7 @@ const handleGoogle = ()=>{
   
 }
 
-  const handleGithub = () =>{
-       github()
-       .then((result)=>{
-        console.log(result)
-      
-          setTimeout(() =>  navigate(loc?.state?loc.state:'/' ),1300)
-       })
-       .catch((error)=>{
-         console.error(error)
-    
-       })
-  }
+  
     return (
         <div className="hero min-h-screen bg-base-200" >
  
@@ -122,7 +111,7 @@ const handleGoogle = ()=>{
           <button  className="btn btn-success">Login</button>
         </div>
         <button onClick={handleGoogle} className='btn btn-neutral'><FaGoogle />Google</button>
-        <button onClick={handleGithub} className='btn btn-neutral'><FaGithub />Github</button>
+       
         <div>
                 <p className='text-center mt-3 text-sm'>Dont have an account <Link to='/register'><span className='text-black text-lg font-semibold '>Register</span></Link> Now</p>
               </div>

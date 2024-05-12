@@ -8,18 +8,21 @@ import { Link } from 'react-router-dom';
 const Home = () => {
    
     const [dataLength,setDataLength] = useState(11)
+    const [loading,isLoading] = useState(true)
+  
     const {isPending,data:food} = useQuery({
         queryKey:['foods'],
         
         queryFn: async()=>{
             const res = await fetch('http://localhost:5000/foods')
             return res.json()
-           
+         
         } 
        })
        
        if(isPending){
-        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-lime-600"></div>
+        return  <div className="w-16 h-16  border-4 border-dashed rounded-full animate-spin border-lime-600"></div>
+
        }
 
     
@@ -53,10 +56,10 @@ const Home = () => {
             
               )}
            </div>
-           <div className='text-center mb-7' >
-          <div >
-           <Link to='/available'> <button className=' btn btn-outline btn-success'>Show All </button></Link>
-          </div>
+           <div className='text-center mb-7 ' >
+          
+           <Link to='/available'> <button className=' btn btn-outline btn-success btn-wide'>Show All </button></Link>
+         
           </div>
         
         </div>

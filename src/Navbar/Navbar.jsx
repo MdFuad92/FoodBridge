@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { Fade } from "react-reveal";
+
 
 
 const Navbar = () => {
@@ -17,11 +17,11 @@ const Navbar = () => {
    }
    
     const links = <>
-         <li ><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/'><span className="hover:text-slate-900 hover:duration-1000  ">Home</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/available'><span className="hover:text-slate-900 hover:duration-1000  ">Available Foods</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/add'><span className="hover:text-slate-900 hover:duration-1000  ">Add Food</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/manage'><span className="hover:text-slate-900 hover:duration-1000  ">My Foods</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/request'><span className="hover:text-slate-900 hover:duration-1000  ">My Food Request</span></NavLink></li>
+         <li ><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/'><span className="hover:text-slate-900 hover:duration-500  ">Home</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/available'><span className="hover:text-slate-900 hover:duration-500  ">Available Foods</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/add'><span className="hover:text-slate-900 hover:duration-500  ">Add Food</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/manage'><span className="hover:text-slate-900 hover:duration-500  ">My Foods</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/request'><span className="hover:text-slate-900 hover:duration-500  ">My Food Request</span></NavLink></li>
     </>
     return (
         <div className="navbar bg-lime-500 h-16">
@@ -40,9 +40,7 @@ const Navbar = () => {
     </ul>
   </div>
   </div>
-  <div>
-    <h2 className="font-pacifico  ml-52 w-96 text-3xl text-white"><Fade duration={2000}>Welcome to Green Basket</Fade></h2>
-  </div>
+ 
 
  
   <div className="navbar-end ">

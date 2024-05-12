@@ -4,26 +4,43 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
+import Lottie from 'react-lottie'
+import animationData from '../../src/lotties//Animation - 1715537156636.json'
 
 const Available = () => {
    
-
-
-
-
+  
+    const [loader,setLoader] = useState(true)
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice',
+        },
+      };
+  
+    
     
            useEffect(()=>{
             axios.get('http://localhost:5000/foods')
             .then(res=>{
                 setfoods(res.data)
                 setSearch(res.data)
+                setTimeout(() => setLoader(false), 3000)
               
             })
            },[])
             const [foods,setfoods] = useState([])
-            const [search,setSearch] = useState([])  
-
+            const [search,setSearch] = useState([]) 
+       
+         if(loader){
+            return  <Lottie
+            options={defaultOptions}
+            height={400}
+            width={400}
+          />
+         }
             
    const handleSort = (sort)=>{
       if(sort === 'date'){
@@ -50,6 +67,7 @@ const Available = () => {
         // email,name,food_name,image,location,date ,photo, status,note,quantity
     return (
         <div className="">
+          
            <div className="space-y-3 mb-10">
            <h5 className="text-xl text-center font-mono mt-14">Lets Take care of Each other</h5>
             <h1 className="text-5xl font-medium text-center">Enjoy & Eat <span className="text-lime-500">Together!</span></h1>
