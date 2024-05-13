@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
    
     const [dataLength,setDataLength] = useState(11)
-    const [loading,isLoading] = useState(true)
+   
   
     const {isPending,data:food} = useQuery({
         queryKey:['foods'],
@@ -50,15 +50,15 @@ const Home = () => {
             <WebsiteFeatures></WebsiteFeatures>
            </div>
 
-           <div className='ml-10 grid grid-cols-3 gap-6'>
+           <div className='md:ml-10 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6'>
            {
         food.map(ff=> ff.quantity === '60'? <FeaturedFoods key={ff._id} ff={ff} ></FeaturedFoods>:''
             
               )}
            </div>
-           <div className='text-center mb-7 ' >
+           <div className='text-center mb-20 ' >
           
-           <Link to='/available'> <button className=' btn btn-outline btn-success btn-wide'>Show All </button></Link>
+           <Link to='/available'> <button className=' btn btn-outline btn-success btn-wide mb-20'>Show All </button></Link>
          
           </div>
         

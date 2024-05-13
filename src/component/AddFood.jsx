@@ -3,11 +3,14 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Hook from "../Hook/Hook";
 
 
 const AddFood = () => {
     
     const {user} = useContext(AuthContext) 
+    const axiosSecure = Hook()
+    const url ='/foods'
 
     const handleFoodData = (e)=>{
        e.preventDefault()
@@ -25,14 +28,16 @@ const AddFood = () => {
        const foodItems = {email,name,food_name,image,location,date ,photo, status,note,quantity}
        console.log(foodItems)
        
-       axios.post('http://localhost:5000/foods',foodItems)
+       axiosSecure.post(url,foodItems)
        .then(data=>{
         console.log(data.data)
         if(data.data.insertedId){
             Swal.fire({
                 title: "Congratulations!",
                 text: "Added Successfully",
-                icon: "success"
+                icon: "success",
+                color:"green",
+                confirmButtonColor: 'green',
               });
           }
        })

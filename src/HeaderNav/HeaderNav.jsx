@@ -5,8 +5,8 @@ import { FaClock } from 'react-icons/fa';
 
 const HeaderNav = () => {
     return (
-        <div className='bg-white mx-auto max-w-6xl h-36 '>
-            <nav className='flex items-center gap-20'>
+        <div className='bg-white  mx-auto w-96 md:max-w-6xl h-36  '>
+            <nav className='md:flex flex flex-col   items-center md:gap-20'>
                <div className='flex items-center'>
                <img className='w-36  ' src={logo} alt="" />
                <h1 className='text-xl font-semibold'>Green <br /> Basket</h1>

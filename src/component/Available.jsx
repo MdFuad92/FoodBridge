@@ -6,11 +6,18 @@ import { Link } from "react-router-dom";
 
 import Lottie from 'react-lottie'
 import animationData from '../../src/lotties//Animation - 1715537156636.json'
+import { TfiLayoutGrid2, TfiLayoutGrid3 } from "react-icons/tfi";
 
 const Available = () => {
    
   
     const [loader,setLoader] = useState(true)
+    const [layout,setLayout] = useState(true)
+
+    const handleLayout = ()=>{
+      setLayout(!layout)
+    }
+
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -23,11 +30,11 @@ const Available = () => {
     
     
            useEffect(()=>{
-            axios.get('http://localhost:5000/foods')
+            axios.get('http://localhost:5000/foods',{withCredentials:true})
             .then(res=>{
                 setfoods(res.data)
                 setSearch(res.data)
-                setTimeout(() => setLoader(false), 3000)
+                setTimeout(() => setLoader(false), 2000)
               
             })
            },[])
@@ -66,7 +73,7 @@ const Available = () => {
 
         // email,name,food_name,image,location,date ,photo, status,note,quantity
     return (
-        <div className="">
+        <div className="mb-20">
           
            <div className="space-y-3 mb-10">
            <h5 className="text-xl text-center font-mono mt-14">Lets Take care of Each other</h5>
@@ -92,13 +99,19 @@ const Available = () => {
     
   </ul>
 </div>
+<div className="flex justify-center mb-3">
+{
+  layout?  <TfiLayoutGrid3 className=" text-xl "  onClick={handleLayout}/>:
+  <TfiLayoutGrid2  onClick={handleLayout}/>
+}
+</div>
                 </div>
                 
-       <div className="grid grid-cols-3  gap-6  ">
+       <div className={ `grid gap-6 md:w-auto w-72  ${layout?'md: grid-cols-3 ':'md:grid-cols-2 '} ` }>
        {
             search.map(s=> s.status === 'Available'?
                 <div key={s._id} >
-                      <div className="w-96   ">
+                      <div className="   ">
                         
             <div className="  max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
       

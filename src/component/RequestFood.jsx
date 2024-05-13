@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Hook from "../Hook/Hook";
 
 
 const RequestFood = () => {
@@ -10,20 +11,19 @@ const RequestFood = () => {
     const [requested,setFoods] = useState([])
     const request = useLoaderData()
     console.log(request)
-
-    // const filter = ()=>{
-
-    // }
+    const axiosSecure = Hook()
+    const url = `/foods/request/${user?.email}`
+    
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/food/${user?.email}`)
-        .then((res)=> res.json())
+        axiosSecure.get(url)
+       
         .then((data)=>{
-            console.log(data)
-            setFoods(data)
+           
+            setFoods(data.data)
            
         })
-    },[user])
+    },[axiosSecure,url])
 
     return (
        <div>
@@ -41,7 +41,7 @@ const RequestFood = () => {
         <th>Pickup Date</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className="text-gray-500">
     {
         requested.map(r=>
              

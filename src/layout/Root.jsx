@@ -7,9 +7,11 @@ import Footer from '../Footer/Footer';
 const Root = () => {
     return (
         <div className='font-lato '>
-            <HeaderNav></HeaderNav>
+         
             <Navbar></Navbar>
+            <div className='min-h-[calc(100vh-64px)]'>
             <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

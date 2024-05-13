@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import logo from '../../src/assets/3552144.jpg'
+import logo from '../../src/assets/food-donation.svg'
 import { Slide } from "react-awesome-reveal";
 
 const Register = () => {

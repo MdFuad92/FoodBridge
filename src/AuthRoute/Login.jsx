@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import logo from '../../src/assets/3552144.jpg'
+import logo from '../../src/assets/food-donation.svg'
 import { Slide } from "react-awesome-reveal";
 
 
@@ -34,7 +34,9 @@ const Login = () => {
      Swal.fire({
       title: "Congratulations!",
       text: "Login Successful",
-      icon: "success"
+      icon: "success",
+       color:"green",
+       confirmButtonColor: 'green',
     });
     navigate(loc?.state?loc.state:'/' )
     })
@@ -43,7 +45,8 @@ const Login = () => {
       Swal.fire({
         title: "Sorry!",
         text: "Wrong Password or Email!",
-        icon: "error"
+        icon: "error",
+        confirmButtonColor: 'green',
       });
     
     })
@@ -57,7 +60,9 @@ const handleGoogle = ()=>{
     Swal.fire({
       title: "Congratulations!",
       text: "Login Successful",
-      icon: "success"
+      icon: "success",
+      color:"green",
+      confirmButtonColor: 'green',
     });
       
      

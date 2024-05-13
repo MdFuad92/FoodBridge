@@ -15,7 +15,7 @@ const Banner = () => {
         deleteSpeed:40
       })
     return (
-        <div className="hero md:min-h-screen min-h-screen  mx-auto  bg-no-repeat opacity-90   " style={{backgroundImage: 'url(https://i.ibb.co/3R0L0zN/anna-pelzer-IGf-IGP5-ONV0-unsplash.jpg'}}>
+        <div className="hero md:min-h-screen min-h-screen  mx-auto  bg-no-repeat opacity-90   " style={{backgroundImage: 'url(https://i.ibb.co/0M4pPDG/Untitled-design-14.png'}}>
         <div className="hero-overlay bg-opacity-20"></div>
         <div className="hero-content text-start font-normal " >
           <div className="max-w-2xl mx-auto space-y-5" data-aos="fade-up" data-aos-duration='1000' >
@@ -31,7 +31,7 @@ const Banner = () => {
           
            </p>
             <div className='mt-5 space-x-3'>
-          <Link to={'/add'}><button className="btn btn-success text-black">Donate Now</button></Link>
+          <Link to={'/add'}><button className="btn btn-success text-white">Donate Now</button></Link>
         
           </div>
           

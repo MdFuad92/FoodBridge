@@ -9,6 +9,7 @@ const FoodDetails = () => {
     const foodDetails = useLoaderData()
     const {user} = useContext(AuthContext)
     const {email,name,food_name,image,location,date ,photo,_id, status,note,quantity} = foodDetails
+   
 
         const showdate = new Date()
         const displayTodaysdate =   ( showdate.getMonth()+1) +'/'+showdate.getDate()+'/'+showdate.getFullYear()
@@ -52,12 +53,13 @@ const FoodDetails = () => {
             axios.put(`http://localhost:5000/foods/${_id}`,requestedItems)
             .then(data=>{
                 console.log(data.data)
-                if(data.modifiedCount > 0){
+                if(data.data.modifiedCount > 0){
                     Swal.fire({
                         title: "Congratulations!",
                         text: "Request Successful",
                         icon: "success",
-                        color:"green"
+                        color:"green",
+                        confirmButtonColor: 'green',
                       });
                   }
             })

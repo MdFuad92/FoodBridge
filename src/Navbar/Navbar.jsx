@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { CiUser } from "react-icons/ci";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import logo from '../../src/assets/food-donation.svg'
+import { BiSolidDonateHeart } from "react-icons/bi";
+import { Fade } from "react-reveal";
 
 
 
@@ -17,18 +20,18 @@ const Navbar = () => {
    }
    
     const links = <>
-         <li ><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/'><span className="hover:text-slate-900 hover:duration-500  ">Home</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/available'><span className="hover:text-slate-900 hover:duration-500  ">Available Foods</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/add'><span className="hover:text-slate-900 hover:duration-500  ">Add Food</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/manage'><span className="hover:text-slate-900 hover:duration-500  ">My Foods</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-slate-900':'font-normal'} to='/request'><span className="hover:text-slate-900 hover:duration-500  ">My Food Request</span></NavLink></li>
+         <li ><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/'><span className="hover:text-lime-600 hover:duration-500  ">Home</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/available'><span className="hover:text-lime-600 hover:duration-500  ">Available Foods</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/add'><span className="hover:text-lime-600 hover:duration-500  ">Add Food</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/manage'><span className="hover:text-lime-600 hover:duration-500  ">My Foods</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/request'><span className="hover:text-lime-600 hover:duration-500  ">My Food Request</span></NavLink></li>
     </>
     return (
-        <div className="navbar bg-lime-500 h-16">
+        <div className="navbar items-center bg-neutral-950 bg-opacity-90 h-16">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         {links}
@@ -41,7 +44,10 @@ const Navbar = () => {
   </div>
   </div>
  
-
+  <div className="md:mr-0 mr-5">
+  <Fade className='text' ><BiSolidDonateHeart className="md:text-7xl text-xl text-white " /> </Fade>
+    <h1 className="font-pacifico text-lg text-white ">FoodBridge</h1>
+  </div>
  
   <div className="navbar-end ">
   {
@@ -53,7 +59,7 @@ const Navbar = () => {
            </div>
          </div>
          <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-         <li className='hover:bg-neutral hover:text-white rounded-lg '><a className='text-sm'><span className='text-lg'>Hi,</span>{user.displayName}!</a></li>
+         <li className='hover:bg-neutral hover:text-lime-600 rounded-lg '><a className='text-sm'><span className='text-lg'>Hi,</span>{user.displayName}!</a></li>
            <li>
              <a className="justify-between">
                Profile
@@ -65,8 +71,8 @@ const Navbar = () => {
          </ul>
        </div> :
     <div className="space-x-3">
-    <Link to='/login'> <button className="btn">Login</button></Link>
-     <Link to='/register'> <button className="btn">Signup</button></Link>
+    <Link to='/login'> <button className="text-white  hover:duration-700  hover:text-lime-600">Login</button></Link>
+     <Link to='/register'> <button className="text-white  hover:duration-700  hover:text-lime-600">Signup</button></Link>
     </div>
   }
     </div>

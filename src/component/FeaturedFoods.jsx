@@ -13,7 +13,7 @@ const FeaturedFoods = ({ff}) => {
         
         
         
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className=" card md:w-96 w-72 mx-auto bg-base-100 shadow-xl">
   <figure className='p-6'><img className=' rounded-lg h-52 '  src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{food_name}</h2>
@@ -33,7 +33,7 @@ const FeaturedFoods = ({ff}) => {
                     <img className="object-cover h-10 w-10 rounded-full" src={photo} alt="Avatar"/>
                     <a href="#" className="mx-2 font-semibold text-gray-700 dark:text-gray-200" tabIndex="0" role="link">{name}</a>
                 </div>
-   <Link to={`/details/${_id}`}>   <button className="btn btn-success">View Details</button></Link>
+   <Link to={`/details/${_id}`}>   <button className="btn btn-success text-white">View Details</button></Link>
     </div>
   </div>
 </div>

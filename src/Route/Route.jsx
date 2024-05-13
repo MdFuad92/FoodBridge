@@ -12,6 +12,8 @@ import Available from "../component/Available";
 import FoodDetails from "../component/FoodDetails";
 import RequestFood from "../component/RequestFood";
 import ManageFood from "../component/ManageFood";
+import { Update } from "@mui/icons-material";
+import Change from "../component/Change";
 
 
 
@@ -48,8 +50,16 @@ const router = createBrowserRouter([
         },
         {
           path:'/manage',
-          element:<ManageFood></ManageFood>,
-          loader:()=>fetch('http://localhost:5000/foods')
+          element:<PrivateRoute><ManageFood></ManageFood></PrivateRoute>,
+         
+       
+
+        },
+        { 
+          path:'/change/:id',
+          element:<Change></Change>,
+          loader:({params})=> fetch(`http://localhost:5000/foods/${params.id}`)
+       
         },
         {
           path:'/request',

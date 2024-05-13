@@ -1,23 +1,68 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { RxUpdate } from 'react-icons/rx';
+import Swal from 'sweetalert2';
+import Hook from '../Hook/Hook';
 
 const ManageFood = () => {
 
+
     const {user} = useContext(AuthContext)
     const [manageFood,setFoods] = useState([])
+    const [remove,setRemove] = useState([])
+    const axiosSecure = Hook()
+    const url = `/foods/user/${user?.email}`
     useEffect(()=>{
 
-        axios.get(`http://localhost:5000/foods/user/${user?.email}`)
+        axiosSecure.get(url)
         .then(data=>{
-            console.log(data.data)
+            
             setFoods(data.data)
+            setRemove(data.data)
+
+            
         })
-    })
+    },[axiosSecure,url])
+
+    
+
+    const handleDelete = (_id)=>{
+      Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+  
+            axios.delete(`http://localhost:5000/foods/user/${_id}`)
+            .then(data=>{
+              console.log(data.data)
+              if(data.data.deletedCount > 0 ){
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                    
+                  });
+                  const remaining = remove.filter(food=> food._id !== _id)
+                  setRemove(remaining)
+            }
+           
+            })
+         
+          }
+        });
+  }
+     
+ 
     return (
-        <div>
+        <div className='overflow-x-auto'>
          
          <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
             <div className='overflow-hidden border border-gray-200  md:rounded-lg'>
@@ -46,7 +91,7 @@ const ManageFood = () => {
                       scope='col'
                       className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                     >
-                      <span>Expiration-Date</span>
+                      <span> Food-Name</span>
                     </th>
 
                     <th
@@ -54,7 +99,7 @@ const ManageFood = () => {
                       className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                     >
                       <button className='flex items-center gap-x-2'>
-                        <span>Quantity</span>
+                        <span>Status</span>
                       </button>
                     </th>
 
@@ -62,14 +107,14 @@ const ManageFood = () => {
                       scope='col'
                       className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                     >
-                     Food-Name
+                     Expiration-Date
                     </th>
 
                     <th
                       scope='col'
                       className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                     >
-                      Status
+                      Quantity
                     </th>
 
                     <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
@@ -88,13 +133,7 @@ const ManageFood = () => {
                           {m.email}
                         </td>
     
-                        <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                          {m.date}
-                        </td>
-    
-                        <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                          {m.quantity}
-                        </td>
+                     
                         <td className='px-4 py-4 text-sm whitespace-nowrap'>
                           <div className='flex items-center gap-x-2'>
                             <p
@@ -111,32 +150,25 @@ const ManageFood = () => {
                             <h2 className='text-sm font-normal '>{m.status}</h2>
                           </div>
                         </td>
+                        <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                          {m.date}
+                        </td>
+    
+                        <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                          {m.quantity}
+                        </td>
                         <td className='px-4 py-4 text-sm whitespace-nowrap'>
                           <div className='flex items-center gap-x-6'>
                           <div className="lg:tooltip " data-tip="Update">
-                            <button onClick={()=>document.getElementById('my_modal_5').showModal()} >
+                           <Link to={`/change/${m._id}`} >
+                           <button  >
                             <RxUpdate className='text-lg text-gray-500 transition-colors duration-200   hover:text-red-500 focus:outline-none' />
-                            {/* Open the modal using document.getElementById('ID').showModal() method */}
-                            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                             <div className="modal-box">
-                             <h3 className="font-bold text-lg">Update form</h3>
-                               <div>
-                                <form className='card-body' action="">
-                                    
-                                </form>
-                               </div>
-                               <div className="modal-action">
-                              <form method="dialog">
-                               {/* if there is a button in form, it will close the modal */}
-                              <button className="btn">Close</button>
-                              </form>
-                               </div>
-                               </div>
-                               </dialog>
-                            </button>
+                       
+                           
+                            </button></Link>
                             </div>
                             <div className="lg:tooltip " data-tip="Delete">
-                            <button className='text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none'>
+                            <button onClick={()=>handleDelete(m._id)} className='text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none'>
                               <svg
                                 xmlns='http://www.w3.org/2000/svg'
                                 fill='none'
