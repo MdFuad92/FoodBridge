@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Lottie from 'react-lottie'
 import animationData from '../../src/lotties//Animation - 1715537156636.json'
 import { TfiLayoutGrid2, TfiLayoutGrid3 } from "react-icons/tfi";
+import { Helmet } from "react-helmet";
 
 const Available = () => {
    
@@ -74,7 +75,11 @@ const Available = () => {
         // email,name,food_name,image,location,date ,photo, status,note,quantity
     return (
         <div className="mb-20">
-          
+                 <Helmet>
+ <html lang="en" />
+        <title>Available Foods</title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
            <div className="space-y-3 mb-10">
            <h5 className="text-xl text-center font-mono mt-14">Lets Take care of Each other</h5>
             <h1 className="text-5xl font-medium text-center">Enjoy & Eat <span className="text-lime-500">Together!</span></h1>

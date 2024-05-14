@@ -5,6 +5,8 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import { RxUpdate } from 'react-icons/rx';
 import Swal from 'sweetalert2';
 import Hook from '../Hook/Hook';
+import { Helmet } from 'react-helmet';
+
 
 const ManageFood = () => {
 
@@ -63,7 +65,11 @@ const ManageFood = () => {
  
     return (
         <div className='overflow-x-auto'>
-         
+                <Helmet>
+ <html lang="en" />
+        <title>Manage My Foods</title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
          <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
             <div className='overflow-hidden border border-gray-200  md:rounded-lg'>
               <table className='min-w-full divide-y divide-gray-200'>

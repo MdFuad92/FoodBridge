@@ -4,6 +4,7 @@ import FeaturedFoods from '../component/FeaturedFoods';
 import { useQuery } from '@tanstack/react-query';
 import WebsiteFeatures from './WebsiteFeatures';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
    
@@ -35,7 +36,11 @@ const Home = () => {
        
     return (
         <div className='space-y-24'>
-          
+                  <Helmet>
+ <html lang="en" />
+        <title>Home</title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
             <Banner></Banner>
            <div className='text-center space-y-4'>
            <h4 className='text-center font-mono text-xl'> Step Into the World of Green Basket</h4>

@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import {  GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -12,7 +12,7 @@ import axios from "axios";
 const auth = getAuth(app)
 export const AuthContext = createContext(null)
 const provider =  new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
+
 
 const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null)

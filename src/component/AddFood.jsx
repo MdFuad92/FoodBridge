@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Hook from "../Hook/Hook";
+import { Helmet } from "react-helmet";
 
 
 const AddFood = () => {
@@ -48,7 +49,11 @@ const AddFood = () => {
   
     return (
         <div className="hero min-h-screen opacity-90 p-9  bg-no-repeat" style={{backgroundImage: 'url(https://i.ibb.co/ZSw5kS1/family-scaled.jpg)'}}>
-
+                      <Helmet>
+ <html lang="en" />
+        <title>Donate</title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
           <div className="card bg-white bg-opacity-90 shadow-lg p-6">
             <div className="p-6 border border-gray-300 rounded-xl  space-y-6">
                 <h1 className="text-2xl font-semibold">Donator Info</h1>

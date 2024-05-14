@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Change = () => {
      const {user} = useContext(AuthContext)
@@ -50,6 +51,11 @@ const Change = () => {
      }
     return (
         <div>
+                          <Helmet>
+ <html lang="en" />
+        <title>Update</title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
              <div className="hero min-h-screen opacity-90 p-9  bg-no-repeat" style={{backgroundImage: 'url(https://i.ibb.co/ZSw5kS1/family-scaled.jpg)'}}>
 
 <div className="card bg-white bg-opacity-90 shadow-lg p-6">

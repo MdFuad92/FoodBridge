@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Hook from "../Hook/Hook";
+import { Helmet } from "react-helmet";
+
 
 
 const RequestFood = () => {
@@ -27,6 +29,11 @@ const RequestFood = () => {
 
     return (
        <div>
+               <Helmet>
+ <html lang="en" />
+        <title>My Food Request </title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
         <div className="overflow-x-auto">
   <table className="table">
     {/* head */}

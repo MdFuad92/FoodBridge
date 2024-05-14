@@ -4,6 +4,7 @@ import logo from '../../src/assets/3552144.jpg'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const FoodDetails = () => {
     const foodDetails = useLoaderData()
@@ -72,6 +73,11 @@ const FoodDetails = () => {
    
     return (
    <div>
+           <Helmet>
+ <html lang="en" />
+        <title>Food Details</title>
+        <meta name="description" content="Basic example" />
+ </Helmet>
     <section className="dark:bg-gray-100 dark:text-gray-800">
 	<div className="container flex flex-col-reverse mx-auto lg:flex-row">
 		<div className="flex flex-col md:ml-24 md:mt-20 px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-violet-600 dark:text-gray-50">

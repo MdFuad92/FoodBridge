@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
-const url = axios.create({
+const secure = axios.create({
     baseURL : 'http://localhost:5000',
     withCredentials:true
 })
@@ -11,7 +11,7 @@ const Hook = () => {
     const { logOut} = useContext(AuthContext)
     const navigate = useNavigate()
       useEffect(()=>{
-        url.interceptors.response.use(res=>{
+        secure.interceptors.response.use(res=>{
          return res
         },error =>{
            console.log('intercepted',error.response)
@@ -26,7 +26,7 @@ const Hook = () => {
         }
     )
       })
-    return url;
+    return secure;
 };
 
 export default Hook;
