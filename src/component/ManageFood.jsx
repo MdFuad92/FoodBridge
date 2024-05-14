@@ -42,7 +42,7 @@ const ManageFood = () => {
         }).then((result) => {
           if (result.isConfirmed) {
   
-            axios.delete(`http://localhost:5000/foods/user/${_id}`)
+            axios.delete(`https://assignment-eleven-omega.vercel.app/foods/user/${_id}`)
             .then(data=>{
               console.log(data.data)
               if(data.data.deletedCount > 0 ){

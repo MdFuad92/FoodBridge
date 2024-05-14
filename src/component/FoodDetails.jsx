@@ -32,7 +32,7 @@ const FoodDetails = () => {
             const requestedItems = {email,request_date, status,note,}
             console.log(requestedItems)
 
-            // fetch(`http://localhost:5000/foods/${_id}`,{
+            // fetch(`https://assignment-eleven-omega.vercel.app/foods/${_id}`,{
             //     method:'PUT',
             //     headers:{
             //         'content-type':'application/json'
@@ -51,7 +51,7 @@ const FoodDetails = () => {
             //           }
             //     })
 
-            axios.put(`http://localhost:5000/foods/${_id}`,requestedItems)
+            axios.put(`https://assignment-eleven-omega.vercel.app/foods/${_id}`,requestedItems)
             .then(data=>{
                 console.log(data.data)
                 if(data.data.modifiedCount > 0){

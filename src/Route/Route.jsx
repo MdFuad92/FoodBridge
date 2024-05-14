@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<FoodDetails></FoodDetails>,
-          loader:({params})=> fetch(`http://localhost:5000/foods/${params.id}`)
+          loader:({params})=> fetch(`https://assignment-eleven-omega.vercel.app/foods/${params.id}`)
         },
         {
           path:'/manage',
@@ -57,14 +57,14 @@ const router = createBrowserRouter([
         },
         { 
           path:'/change/:id',
-          element:<Change></Change>,
-          loader:({params})=> fetch(`http://localhost:5000/foods/${params.id}`)
+          element:<PrivateRoute><Change></Change></PrivateRoute>,
+          loader:({params})=> fetch(`https://assignment-eleven-omega.vercel.app/foods/${params.id}`)
        
         },
         {
           path:'/request',
           element:<PrivateRoute><RequestFood></RequestFood></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/food/${params.id}`)
+          loader:({params})=>fetch(`https://assignment-eleven-omega.vercel.app/food/${params.id}`)
         
         }
       ]

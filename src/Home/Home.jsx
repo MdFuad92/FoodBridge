@@ -15,7 +15,7 @@ const Home = () => {
         queryKey:['foods'],
         
         queryFn: async()=>{
-            const res = await fetch('http://localhost:5000/foods')
+            const res = await fetch('https://assignment-eleven-omega.vercel.app/foods')
             return res.json()
          
         } 

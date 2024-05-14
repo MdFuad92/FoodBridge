@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import Lottie from 'react-lottie'
 import animationData from '../../src/lotties//Animation - 1715537156636.json'
-import { TfiLayoutGrid2, TfiLayoutGrid3 } from "react-icons/tfi";
+import { TfiLayoutGrid2, TfiLayoutGrid3, TfiLayoutGrid3Alt } from "react-icons/tfi";
 import { Helmet } from "react-helmet";
 
 const Available = () => {
@@ -31,7 +31,7 @@ const Available = () => {
     
     
            useEffect(()=>{
-            axios.get('http://localhost:5000/foods',{withCredentials:true})
+            axios.get('https://assignment-eleven-omega.vercel.app/foods',{withCredentials:true})
             .then(res=>{
                 setfoods(res.data)
                 setSearch(res.data)
@@ -107,7 +107,7 @@ const Available = () => {
 <div className="flex justify-center mb-3">
 {
   layout?  <TfiLayoutGrid3 className=" text-xl "  onClick={handleLayout}/>:
-  <TfiLayoutGrid2  onClick={handleLayout}/>
+  <TfiLayoutGrid3Alt  className="text-xl" onClick={handleLayout}/>
 }
 </div>
                 </div>

@@ -30,7 +30,7 @@ const Change = () => {
 
        
 
-        axios.put(`http://localhost:5000/foods/user/${_id}`,manageFoods)
+        axios.put(`https://assignment-eleven-omega.vercel.app/foods/user/${_id}`,manageFoods)
         .then(data=>{
             console.log(data.data)
             if(data.data.modifiedCount > 0){
