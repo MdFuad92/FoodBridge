@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import HeaderNav from '../HeaderNav/HeaderNav';
 import Footer from '../Footer/Footer';
+import RootLoader from '../Loader/RootLoader';
 
 const Root = () => {
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 2500)
+    }, [])
+    if (loading) {
+        return <RootLoader/>
+    }
     return (
         <div className='font-lato '>
          

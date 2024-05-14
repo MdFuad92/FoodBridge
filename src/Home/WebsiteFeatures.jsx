@@ -44,7 +44,7 @@ const WebsiteFeatures = () => {
             </div>
             <div className="flex flex-col items-center p-4">
             <PiBowlFoodLight  className='text-5xl text-lime-500' ></PiBowlFoodLight >
-                <h3 className="my-3 text-3xl font-semibold">Bowl Dishes:</h3>
+                <h3 className="my-3 text-3xl font-semibold">Bowl Dishes</h3>
                 <div className="space-y-1 leading-tight">
                     <p>Ramen noodles with vegetables</p>
                     <p>Roasted veggies, and avocado</p>

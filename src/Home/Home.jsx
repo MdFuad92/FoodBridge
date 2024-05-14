@@ -5,10 +5,13 @@ import { useQuery } from '@tanstack/react-query';
 import WebsiteFeatures from './WebsiteFeatures';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-
+import { MutatingDots, ProgressBar, ThreeDots } from 'react-loader-spinner';
+import Contact from './Contact';
+import About from './About';
+import { motion } from "framer-motion"
 const Home = () => {
    
-    const [dataLength,setDataLength] = useState(11)
+    const [dataLength,setDataLength] = useState(6)
    
   
     const {isPending,data:food} = useQuery({
@@ -22,7 +25,20 @@ const Home = () => {
        })
        
        if(isPending){
-        return  <div className="w-16 h-16  border-4 border-dashed rounded-full animate-spin border-lime-600"></div>
+        return  <div className='flex justify-center my-auto'>
+          <MutatingDots
+          
+  visible={true}
+  height="100"
+  width="100"
+  color="#0000"
+  secondaryColor="#0000"
+  radius="12.5"
+  ariaLabel="mutating-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
+        </div>
 
        }
 
@@ -54,8 +70,8 @@ const Home = () => {
            <div>
             <WebsiteFeatures></WebsiteFeatures>
            </div>
-
-           <div className='md:ml-10 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6'>
+           
+           <div  className='  grid grid-cols-1 md:grid-cols-3 gap-20'>
            {
         food.map(ff=> ff.quantity === '60'? <FeaturedFoods key={ff._id} ff={ff} ></FeaturedFoods>:''
             
@@ -65,6 +81,12 @@ const Home = () => {
           
            <Link to='/available'> <button className=' btn btn-outline btn-success btn-wide mb-20'>Show All </button></Link>
          
+          </div>
+          <div>
+            <Contact></Contact>
+          </div>
+          <div>
+            <About></About>
           </div>
         
         </div>

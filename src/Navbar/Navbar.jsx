@@ -22,7 +22,7 @@ const Navbar = () => {
     const links = <>
          <li ><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/'><span className="hover:text-lime-600 hover:duration-500  ">Home</span></NavLink></li>
         <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/available'><span className="hover:text-lime-600 hover:duration-500  ">Available Foods</span></NavLink></li>
-        <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/add'><span className="hover:text-lime-600 hover:duration-500  ">Add Food</span></NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/add'><span className="hover:text-lime-600 hover:duration-500  ">Donate Food</span></NavLink></li>
         <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/manage'><span className="hover:text-lime-600 hover:duration-500  ">My Foods</span></NavLink></li>
         <li><NavLink className={({isActive})=>isActive?'text-lime-600':'font-normal'} to='/request'><span className="hover:text-lime-600 hover:duration-500  ">My Food Request</span></NavLink></li>
     </>

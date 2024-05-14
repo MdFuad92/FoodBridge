@@ -14,6 +14,7 @@ import RequestFood from "../component/RequestFood";
 import ManageFood from "../component/ManageFood";
 import { Update } from "@mui/icons-material";
 import Change from "../component/Change";
+import Error from "../Error/Error";
 
 
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:'/',

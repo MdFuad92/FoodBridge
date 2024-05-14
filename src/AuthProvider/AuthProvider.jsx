@@ -79,7 +79,7 @@ const AuthProvider = ({children}) => {
         
       }
       
-     },[])   
+     })   
 
     const authInfo = {user,createEmail,login,logOut,update,google,loader}
     return (
