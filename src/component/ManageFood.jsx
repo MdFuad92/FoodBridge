@@ -15,7 +15,7 @@ const ManageFood = () => {
     const [manageFood,setFoods] = useState([])
     const [remove,setRemove] = useState([])
     const axiosSecure = Hook()
-    const url = `/foods/user/${user?.email}`
+    const url = `/managefood/${user?.email}`
     useEffect(()=>{
 
         axiosSecure.get(url)
@@ -42,7 +42,7 @@ const ManageFood = () => {
         }).then((result) => {
           if (result.isConfirmed) {
   
-            axios.delete(`https://assignment-eleven-omega.vercel.app/foods/user/${_id}`)
+            axios.delete(`https://assignment-eleven-omega.vercel.app/foods/user/${_id}`,{withCredentials:true})
             .then(data=>{
               console.log(data.data)
               if(data.data.deletedCount > 0 ){

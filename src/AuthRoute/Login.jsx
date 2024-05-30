@@ -5,15 +5,18 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import logo from '../../src/assets/food-donation.svg'
 import { Slide } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
 
 
 const Login = () => {
     
 
     const {login,google} = useContext(AuthContext)
+    const [t,i18n] = useTranslation("global")
 
   const [security,setSecurity] = useState(false)
   const loc = useLocation()
+  console.log(loc)
   const navigate = useNavigate()
 
  
@@ -38,7 +41,7 @@ const Login = () => {
        color:"green",
        confirmButtonColor: 'green',
     });
-    navigate(loc?.state?loc.state:'/' )
+    navigate(loc?.state?loc.state : '/')
     })
     .catch((error)=>{
       console.error(error)
@@ -63,6 +66,7 @@ const handleGoogle = ()=>{
       icon: "success",
       color:"green",
       confirmButtonColor: 'green',
+      
     });
       
      
@@ -85,7 +89,7 @@ const handleGoogle = ()=>{
   <div className="hero-content overflow-hidden flex-col lg:flex-row-reverse">
     <Slide direction="right"  duration={2000}>
     <div className="text-center lg:text-left overflow-x-hidden">
-      <h1 className="text-2xl font-thin">Login  to access  donate option to help out the community </h1>
+      <h1 className="text-2xl font-thin">{t("authenticate.des")} </h1>
      
     </div>
     </Slide >
@@ -102,23 +106,23 @@ const handleGoogle = ()=>{
         </div>
         <div className="form-control relative">
           <label className="label">
-            <span className="label-text">Password</span>
+            <span className="label-text">{t("authenticate.password")}</span>
           </label>
-          <input type={security?'text':"password"} placeholder="password" name='password' className="input input-bordered" required />
+          <input type={security?'text':"password"} placeholder={t("authenticate.password")} name='password' className="input input-bordered" required />
           <span className='absolute md:left-72 left-60 top-[53px]' onClick={()=> setSecurity(!security) } >{
                  security?<FaEye className='text-lg'></FaEye>:<FaEyeSlash className='text-lg' />
                 }</span>
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <a href="#" className="label-text-alt link link-hover">{t("authenticate.forgot-password")} ?</a>
           </label>
         </div>
         <div className="form-control mt-6">
-          <button  className="btn btn-success">Login</button>
+          <button  className="btn btn-success">{t("authenticate.reg")}</button>
         </div>
         <button onClick={handleGoogle} className='btn btn-neutral'><FaGoogle />Google</button>
        
         <div>
-                <p className='text-center mt-3 text-sm'>Dont have an account <Link to='/register'><span className='text-black text-lg font-semibold '>Register</span></Link> Now</p>
+                <p className='text-center mt-3 text-sm'>{t("authenticate.log1")} <Link to='/register'><span className='text-black text-lg font-semibold '>{t("authenticate.log2")} </span></Link> {t("authenticate.log3")} </p>
               </div>
             
 

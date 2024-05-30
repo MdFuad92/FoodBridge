@@ -1,0 +1,80 @@
+{
+    "header": {
+        "message" : "Rassembler les communautés, un repas à la fois",
+        "para" : "Nourriture gratuite pour tout le monde",
+        "button" : "Faire un don maintenant"
+    },
+    "home":{
+        "body" : "Entrez dans le monde de FoodBridge",
+        "heading1" : "Partageons nos aliments ",
+        "heading2": "les uns avec les autres",
+        "description" : "Notre site Web communautaire de partage de nourriture met en relation les individus qui ont des surplus de nourriture avec ceux qui en ont besoin. Qu'il s'agisse de produits excédentaires provenant d'un jardin ou de restes d'un événement de restauration, les membres peuvent publier ce dont ils disposent et d'autres peuvent parcourir et demander des articles. Il s'agit d'une plate-forme construite sur les principes de réduction du gaspillage alimentaire et d'aide aux personnes confrontées à l'insécurité alimentaire. Ensemble, nous ne partageons pas seulement des repas, mais nous répandons également de la compassion et faisons une différence, une bouchée à la fois.",
+        "community" : "Communauté pour s'entraider",
+        "com-motto": "Partager c'est aimer",
+        "com-food1": "Produits frais",
+        "com-food2": "Plats préparés",
+        "com-food3": "Marchandises emballées",
+        "com-food4": "Plats à bols",
+        "com-food5": "le prêt-à-manger",
+        "com-food6": "Breuvages",
+        "button": "Afficher tout",
+        "Contact": "Contactez-nousc",
+        "Contact-des": "Contactez-nous maintenant si vous avez besoin de savoir quoi que ce soit concernant notre service.",
+        "Contact-btn": "Envoyer le message",
+        "About-heading": "À propos de nous",
+        "About-des": "Bienvenue dans notre communauté de dons de nourriture ! Nous sommes un groupe passionné dédié à la lutte contre la faim et le gaspillage alimentaire dans notre communauté. Grâce à notre plateforme, nous mettons en relation de généreux donateurs avec ceux qui en ont besoin, garantissant ainsi que personne n'ait faim. Que vous cherchiez à faire don de surplus de nourriture ou à demander de l'aide, notre interface conviviale facilite la participation et fait la différence. Rejoignez-nous pour créer un monde où chacun a accès à des repas nutritifs, un don à la fois. Ensemble, nous pouvons avoir un impact significatif et bâtir une communauté plus forte et plus compatissante."
+
+    },
+
+    "foodCard":{
+        "note":"Constater",
+        "pickup":"lieu de ramassage",
+        "expire-date": "Date d'expiration",
+        "quantity": "Quantité de nourriture",
+         "button" : "Voir les détails"
+         
+  },
+
+  "available":{
+    "heading": "Prenons soin les uns des autresr",
+    "highlight1": "Profitez et mangez",
+    "highlight2": "ensemble!",
+    "find": "Recherche",
+    "sort": "Trier"
+
+
+},
+  "donate": {
+     "donator-info": "Informations sur le donateur",
+     "Profile-Photo": "Photo de profil",
+     "Name": "Nom",
+     "Food-name" : "Nom de l'aliment",
+     "Food-image" : "Image alimentaire",
+     "Pickup-location" : "Lieu de ramassage",
+     "Expired-Date" : "Date d'expiration",
+     "Quantity" : "Quantité",
+     "Food-Status" : "Statut alimentaire",
+     "status1" : "Disponible",
+     "status2" : "Indisponible",
+     "User-image" : "Image de l'utilisateur",
+     "note" : "constater",
+     "button" : "Ajouter"
+     
+},
+
+"authenticate":{
+    "password":"mot de passe",
+    "forgot-password":"Mot de passe oublié",
+    "des": "Connectez-vous pour accéder à l'option de don pour aider la communauté",
+    "log1":"Je n'ai pas de compte",
+    "log2":"Registre",
+    "log3":"Maintenant",
+    "reg":"Se connecter",
+    "reg-des": "Rejoignez notre incroyable communauté en enregistrant votre compte",
+    "reg-des2": "Rassembler les communautés",
+    "reg3" : "Vous avez déjà un compte"
+   
+   }
+  
+            
+}

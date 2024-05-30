@@ -14,7 +14,7 @@ const RequestFood = () => {
     const request = useLoaderData()
     console.log(request)
     const axiosSecure = Hook()
-    const url = `/foods/request/${user?.email}`
+    const url = `/foods-request/${user?.email}`
     
 
     useEffect(()=>{
@@ -45,7 +45,7 @@ const RequestFood = () => {
         <th>Expired Date</th>
         <th>Requested Date</th>
         <th>Requested User Email</th>
-        <th>Pickup Date</th>
+        <th>Pickup Location</th>
       </tr>
     </thead>
     <tbody className="text-gray-500">
@@ -58,7 +58,7 @@ const RequestFood = () => {
       <td>{r.food_name}</td>
       <td>{r.date}</td>
       <td>{r.request_date}</td>
-      <td>{r.email}</td>
+      <td>{r.user_email}</td>
       <td>{r.location}</td>
     </tr>
         )

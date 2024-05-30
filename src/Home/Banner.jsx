@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useTypewriter } from "react-simple-typewriter";
 
@@ -6,10 +7,10 @@ import { useTypewriter } from "react-simple-typewriter";
 
 
 const Banner = () => {
-       
+       const [t,i18n ] = useTranslation("global")
     const [typeEffect] = useTypewriter({
 
-        words:['Bringing communities together, one meal at a time.'],
+        words:[t("header.message")],
         loop:{},
         typeSpeed:100,
         deleteSpeed:40
@@ -27,11 +28,11 @@ const Banner = () => {
           </div >
             
           
-            <p className="mb-5 text-lg font-thin text-white" >Free Food For Everyone <br />
+            <p className="mb-5 text-lg font-thin text-white" >{t("header.para")} <br />
           
            </p>
             <div className='mt-5 space-x-3'>
-          <Link to={'/add'}><button className="btn btn-success text-white">Donate Now</button></Link>
+          <Link to={'/add'}><button className="btn btn-success text-white">{t("header.button")}</button></Link>
         
           </div>
           

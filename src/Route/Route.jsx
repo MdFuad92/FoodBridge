@@ -15,6 +15,7 @@ import ManageFood from "../component/ManageFood";
 import { Update } from "@mui/icons-material";
 import Change from "../component/Change";
 import Error from "../Error/Error";
+import DonateUs from "../component/DonateUs";
 
 
 
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/details/:id',
-          element:<FoodDetails></FoodDetails>,
+          element:<PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
           loader:({params})=> fetch(`https://assignment-eleven-omega.vercel.app/foods/${params.id}`)
         },
         {
@@ -68,7 +69,8 @@ const router = createBrowserRouter([
           element:<PrivateRoute><RequestFood></RequestFood></PrivateRoute>,
           loader:({params})=>fetch(`https://assignment-eleven-omega.vercel.app/food/${params.id}`)
         
-        }
+        },
+      
       ]
     },
   ]);

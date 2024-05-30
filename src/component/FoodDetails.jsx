@@ -28,8 +28,8 @@ const FoodDetails = () => {
             const note = form.note.value
             const donator_name = form.Donator_Name.value
             const donator_email = form.Donator_Email.value
-            const email = form.email.value       
-            const requestedItems = {email,request_date, status,note,}
+            const user_email = user?.email      
+            const requestedItems = {user_email,request_date, status,note,}
             console.log(requestedItems)
 
             // fetch(`https://assignment-eleven-omega.vercel.app/foods/${_id}`,{
@@ -165,7 +165,7 @@ const FoodDetails = () => {
                 <label className="cursor-pointer label space-x-3 ">
                 
                 
-                <input  type="text" name='Donator_Email' defaultValue={email}  className="input input-bordered "    required  readOnly />
+                <input  type="email" name='Donator_Email' defaultValue={email}  className="input input-bordered "    required  readOnly />
               
               
                 </label>
@@ -187,7 +187,7 @@ const FoodDetails = () => {
                 <label className="label">
                 <span className="label-text font-bold text-black text-lg">User email</span>
                 </label>
-                <input  type="email" name='email'  defaultValue={user?.email}  placeholder="Email" className="input input-bordered" required  readOnly/>
+                <input  type="email"   defaultValue={user?.email}  placeholder="Email" className="input input-bordered" required  readOnly/>
                 </div>
                 <div className="form-control md:w-1/2 ">
                 <label className="label">
@@ -248,7 +248,7 @@ const FoodDetails = () => {
 		</div>
 		<div className="lg:w-1/2 xl:w-3/5 dark:bg-gray-100">
 			<div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
-				<img src={image} alt="" className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video md:h-96 md:w-[400px] w-60 min-h-72 " />
+				<img src={image} alt="" className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video w-[800px] min-h-svh" />
 			</div>
 		</div>
 	</div>

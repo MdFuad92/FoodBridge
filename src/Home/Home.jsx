@@ -9,9 +9,11 @@ import { MutatingDots, ProgressBar, ThreeDots } from 'react-loader-spinner';
 import Contact from './Contact';
 import About from './About';
 import { motion } from "framer-motion"
+import { useTranslation } from 'react-i18next';
 const Home = () => {
+  const [t,i18n] = useTranslation("global")
    
-    const [dataLength,setDataLength] = useState(6)
+    // const [dataLength,setDataLength] = useState(6)
    
   
     const {isPending,data:food} = useQuery({
@@ -25,7 +27,7 @@ const Home = () => {
        })
        
        if(isPending){
-        return  <div className='flex justify-center my-auto'>
+        return  <div className='flex justify-center my-auto  '>
           <MutatingDots
           
   visible={true}
@@ -42,8 +44,8 @@ const Home = () => {
 
        }
 
-    
-     
+  
+  
     
       
          
@@ -52,18 +54,18 @@ const Home = () => {
        
     return (
         <div className='space-y-24'>
-                  <Helmet>
+                      <Helmet>
  <html lang="en" />
-        <title>Home</title>
+        <title>FoodBridge </title>
         <meta name="description" content="Basic example" />
- </Helmet>
+ </Helmet> 
             <Banner></Banner>
            <div className='text-center space-y-4'>
-           <h4 className='text-center font-mono text-xl'> Step Into the World of Green Basket</h4>
-            <h1 className='text-5xl font-thin'>Lets share our <span className='text-lime-300 space-x-3' >Foods to each other</span></h1>
+           <h4 className='text-center font-mono text-xl'> {t("home.body")}</h4>
+            <h1 className='text-5xl font-thin'>{t("home.heading1")} <span className='text-lime-300 space-x-3' >{t("home.heading2")}</span></h1>
           <div className='flex justify-center'>
           <p className='leading-tight w-1/2 text-base'>
-            Our food sharing community website connects individuals who have surplus food with those in need. Whether its excess produce from a backyard garden or leftovers from a catering event, members can post what they have available, and others can browse and request items. Its a platform built on the principles of reducing food waste and helping those facing food insecurity. Together, we are not just sharing meals, but also spreading compassion and making a difference, one bite at a time.
+          {t("home.description")}
             </p>
           </div>
            </div>
@@ -71,7 +73,7 @@ const Home = () => {
             <WebsiteFeatures></WebsiteFeatures>
            </div>
            
-           <div  className='  grid grid-cols-1 md:grid-cols-3 gap-20'>
+           <div  className=' overflow-hidden  hover:cursor-pointer   grid grid-cols-1 md:grid-cols-3 gap-10'>
            {
         food.map(ff=> ff.quantity === '60'? <FeaturedFoods key={ff._id} ff={ff} ></FeaturedFoods>:''
             
@@ -79,7 +81,7 @@ const Home = () => {
            </div>
            <div className='text-center mb-20 ' >
           
-           <Link to='/available'> <button className=' btn btn-outline btn-success btn-wide mb-20'>Show All </button></Link>
+           <Link to='/available'> <button className=' btn btn-outline btn-success btn-wide mb-20'>{t("home.button")} </button></Link>
          
           </div>
           <div>

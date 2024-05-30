@@ -5,10 +5,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Hook from "../Hook/Hook";
 import { Helmet } from "react-helmet";
+import familyPic from "../../src/assets/family-scaled.jpg"
+import { useTranslation } from "react-i18next";
 
 
 const AddFood = () => {
-    
+
+    const [t,i18n] = useTranslation("global")
     const {user} = useContext(AuthContext) 
     const axiosSecure = Hook()
     const url ='/foods'
@@ -48,19 +51,19 @@ const AddFood = () => {
 
   
     return (
-        <div className="hero min-h-screen opacity-90 p-9  bg-no-repeat" style={{backgroundImage: 'url(https://i.ibb.co/ZSw5kS1/family-scaled.jpg)'}}>
+        <div className="hero min-h-screen opacity-90 md:p-9  bg-no-repeat" style={{backgroundImage: `url(${familyPic})`}}>
                       <Helmet>
  <html lang="en" />
         <title>Donate</title>
         <meta name="description" content="Basic example" />
  </Helmet>
-          <div className="card bg-white bg-opacity-90 shadow-lg p-6">
+          <div className="card bg-white bg-opacity-90 shadow-lg p-6 mb-5 mt-5">
             <div className="p-6 border border-gray-300 rounded-xl  space-y-6">
-                <h1 className="text-2xl font-semibold">Donator Info</h1>
-                 <span className="flex items-center space-y-6 font-bold "><span className="mr-5">Profile Photo: </span>
+                <h1 className="text-2xl font-semibold">{t("donate.donator-info")}</h1>
+                 <span className="flex items-center space-y-6 font-bold "><span className="mr-5">{t("donate.Profile-Photo")}: </span>
                  <img className="border rounded-xl w-24" src={user.photoURL} alt="" /></span>
 
-                 <p className="font-bold">Name : {user.displayName}</p>
+                 <p className="font-bold">{t("donate.Name")} : {user.displayName}</p>
                  <p className="font-bold">Email : {user.email} </p>
             </div>
           <form onSubmit={handleFoodData} className="card-body     " data-aos="fade-up"data-aos-duration='1000'>
@@ -71,16 +74,16 @@ const AddFood = () => {
            
                 <div className="form-control md:w-auto ">
                 <label className="label">
-                <span className="label-text text-black text-lg">Food Name</span>
+                <span className="label-text text-black text-lg">{t("donate.Food-name")}</span>
                 </label>
-                <input type="text" name='Food_name' placeholder="Food Name" className="input input-bordered" required />
+                <input type="text" name='Food_name' placeholder={t("donate.Food-name")} className="input input-bordered" required />
               
                 </div>
                 <div className="form-control md:w-1/2  ">
                 <label className="label">
-                <span className="label-text text-black text-lg">Food URL</span>
+                <span className="label-text text-black text-lg">{t("donate.Food-image")}</span>
                 </label>
-                <input  type="text" placeholder="Food URL" name='Food_image' className="input input-bordered w-full" required />
+                <input  type="text" placeholder={t("donate.Food-image")} name='Food_image' className="input input-bordered w-full" required />
                 </div>
                
             </div>
@@ -90,7 +93,7 @@ const AddFood = () => {
         
             <div className="form-control md:w-1/2 ">
                 <label className="label">
-            <span className="label-text text-black text-sm">Pickup Location</span>
+            <span className="label-text text-black text-sm">{t("donate.Pickup-location")}</span>
                 </label>
               
                 <select className='input border-gray-200' placeholder='Pickup Location'  type="text" name="pickup_location" id="location">
@@ -109,7 +112,7 @@ const AddFood = () => {
             
                 <div className="form-control   ">
                 <label className="label">
-                <span className="label-text text-black text-lg">Expired Date</span>
+                <span className="label-text text-black text-lg">{t("donate.Expired-Date")}</span>
                 </label>
                 <input type="date" name='date' placeholder="Expiration Date" className="input input-bordered" required />
               
@@ -120,7 +123,7 @@ const AddFood = () => {
             <div className='md:flex items-center gap-8 '>
             <div className="form-control md:w-1/2 ">
                 <label className="label">
-                <span className="label-text text-black text-sm">Quantity</span>
+                <span className="label-text text-black text-sm">{t("donate.Quantity")}</span>
                 </label>
               
                 <select className='input border border-gray-200' placeholder='Category'  type="text" name="quantity" id="quantity-type">
@@ -137,16 +140,16 @@ const AddFood = () => {
                         
                 </div>
                 <div className="form-control ">
-                <h1 className='font-bold'>Food Status</h1>
+                <h1 className='font-bold'>{t("donate.status1")}</h1>
                 <label className="cursor-pointer label space-x-3 ">
-                <span className="label-text text-black text-lg">Available</span>
+                <span className="label-text text-black text-lg">{t("donate.Food-Status")}</span>
                 
                 <input  type="radio" name='status' value='Available' checked   className="checkbox checkbox-success" required  />
               
               
                 </label>
                 <label className="cursor-pointer label space-x-3 ">
-                <span className="label-text text-black text-lg">Not Available</span>
+                <span className="label-text text-black text-lg">{t("donate.status2")}</span>
                 
                 <input  type="radio" name='status' value='Not Available'   className="checkbox checkbox-error" required  />
               
@@ -166,7 +169,7 @@ const AddFood = () => {
             <div className='md:flex items-center gap-8 '>
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-bold text-xl">User Image</span>
+                <span className="label-text font-bold text-xl">{t("donate.User-image")}</span>
               </label>
               <input type="photo" placeholder="photo" name='photo' defaultValue={user.photoURL} className="input input-bordered" required readOnly />
             </div>
@@ -178,7 +181,7 @@ const AddFood = () => {
                 </div>
                 <div className="form-control">
                 <label className="label">
-                <span className="label-text font-bold text-black text-lg">Name</span>
+                <span className="label-text font-bold text-black text-lg">{t("donate.Name")}</span>
                 </label>
                 <input type="name" name='name' defaultValue={user?.displayName} placeholder="Name" className="input input-bordered" required readOnly />
               
@@ -189,9 +192,9 @@ const AddFood = () => {
             <div className='md:flex items-center gap-8 '>
             <div className="form-control w-full ">
                 <label className="label">
-                <span className="label-text font-bold text-black text-lg">Note</span>
+                <span className="label-text font-bold text-black text-lg">{t("donate.note")}</span>
                 </label>
-                <input type="text" name='note' placeholder="Note" className="input input-bordered" required />
+                <input type="text" name='note' placeholder={t("donate.note")} className="input input-bordered" required />
                 </div>
           
                
@@ -199,7 +202,7 @@ const AddFood = () => {
          
           
         
-            <input type="submit" value='Add' className='btn btn-block btn-success text-white ' />
+            <input type="submit" value={t("donate.button")}  className='btn btn-block btn-success text-white ' />
                 </form>
                
           </div>

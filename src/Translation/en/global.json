@@ -1,0 +1,82 @@
+{
+    "header": {
+        "message" : "Bringing communities together,one meal at a time",
+        "para" : "Free food for everyone",
+        "button" : "Donate Now"
+    },
+    "home":{
+        "body" : "Step Into the World of FoodBridge",
+        "heading1": "Lets share our",
+        "heading2": "Foods to each other",
+        "description" : "Our food sharing community website connects individuals who have surplus food with those in need. Whether its excess produce from a backyard garden or leftovers from a catering event, members can post what they have available, and others can browse and request items. Its a platform built on the principles of reducing food waste and helping those facing food insecurity. Together, we are not just sharing meals, but also spreading compassion and making a difference, one bite at a time.",
+        "community": "Community to help each other",
+        "com-motto": "Sharing is Caring",
+        "com-food1": "Fresh Produce",
+        "com-food2": "Prepared Meals",
+        "com-food3": "Packaged Goods",
+        "com-food4": "Bowl Dishes",
+        "com-food5": "Fast Food",
+        "com-food6": "Beverages",
+        "button" : "Show All",
+        "Contact": "Contact Us",
+        "Contact-des": "Contact now if you need to know anything regarding about our service.",
+        "Contact-btn": "Send Message",
+        "About-heading": "About Us",
+        "About-des": "Welcome to our food donation community! We are a passionate group dedicated to combating hunger and food waste in our community. Through our platform, we connect generous donors with those in need, ensuring that no one goes hungry. Whether you're looking to donate surplus food or seeking assistance, our user-friendly interface makes it easy to participate and make a difference. Join us in creating a world where everyone has access to nutritious meals, one donation at a time. Together, we can make a meaningful impact and build a stronger, more compassionate community."
+
+         
+    },
+    "foodCard":{
+          "note":"Note",
+          "pickup":"Pickup Location",
+          "expire-date": "Expiration Date",
+          "quantity": "Food Quantity",
+          "button" : "View Details"
+          
+    },
+
+    "available":{
+            "heading": "Lets Take care of Each other",
+            "highlight1": "Enjoy & Eat",
+            "highlight2": "Together!",
+            "find": "Search",
+            "sort": "Sort"
+
+
+
+    },
+
+    "donate": {
+        "donator-info": "Donator Info",
+        "Profile-Photo": "Profile Photo",
+        "Name": "Name",
+        "Food-name" : "Food Name",
+        "Food-image" : "Food Image",
+        "Pickup-location" : "Pickup Location",
+        "Expired-Date" : "Expired Date",
+        "Quantity" : "Quantity",
+        "Food-Status" : "Food Status",
+        "status1" : "Available",
+        "status2" : "Unavailable",
+        "User-image" : "User Image",
+        "note" : "Note",
+        "button" : "Add"
+      
+    },
+
+    "authenticate":{
+          "password":"Password",
+          "forgot-password":"Forgot Password",
+          "des": "Login to access donate option to help out the community",
+          "log1":"Dont have an account",
+          "log2":"Register",
+          "log3":"Now",
+          "reg":"Login",
+          "reg-des": "Join our amazing community by registering your account",
+          "reg-des2": "Bringing communities together",
+          "reg3" : "Already have an account"
+         
+    }
+
+            
+}

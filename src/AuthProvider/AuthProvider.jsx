@@ -56,7 +56,7 @@ const AuthProvider = ({children}) => {
         const loggedUser = {email: userEmail}
           console.log(currentUser)
           setUser(currentUser)
-          setTimeout(() => setLoader(false), 1500)
+          setLoader(false)
 
           if(currentUser){
           
