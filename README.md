@@ -12,3 +12,12 @@ Live link: https://assignment-eleven-b42c8.web.app/
 - Firebase: https://firebase.google.com/?gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJWEX07f6laMpbyAa4PTr5cN4cGq765mVoFbOsHYCjb_sDl4MKhhOMxoCjiQQAvD_BwE&gclsrc=aw.ds
 - React-icon: https://www.npmjs.com/package/react-icons
 - Sweet-Alert: https://sweetalert2.github.io/#examples
+
+
+ 
+**Added Multi-Language Support for the website**
+  - Heres How you can change the language :
+   
+   ![Screenshot (24)](https://github.com/Porgramming-Hero-web-course/b9a11-client-side-MdFuad92/assets/155460212/9faa6a59-8faa-4b46-ae4e-9d94737896b1)
+
+  Note: Only French language is supported for now.
