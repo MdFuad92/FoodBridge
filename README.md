@@ -29,3 +29,10 @@ Live link: https://assignment-eleven-b42c8.web.app/
    ![Screenshot (24)](https://github.com/Porgramming-Hero-web-course/b9a11-client-side-MdFuad92/assets/155460212/9faa6a59-8faa-4b46-ae4e-9d94737896b1)
 
   Note: Only French language is supported for now.
+
+- ### Installation
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/yourusername/Crimson-Pottery.git
