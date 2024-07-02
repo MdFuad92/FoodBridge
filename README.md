@@ -3,6 +3,11 @@ Project-Overview:  A Food donation website where people can donate food to share
 
 Live link: https://assignment-eleven-b42c8.web.app/
 
+Features:-
+• Clients can donate through a form.
+• Anyone can request for donated foods in the website.
+• Clients can delete their donation if they want
+
 - Resources:
 - Framer-motion: https://www.framer.com/motion/
 - MongoDB for database : https://www.mongodb.com/
