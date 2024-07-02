@@ -35,4 +35,4 @@ Live link: https://assignment-eleven-b42c8.web.app/
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/Crimson-Pottery.git
+   git clone https://github.com/yourusername/FoodBridge.git
